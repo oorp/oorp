@@ -1,7 +1,13 @@
-A migration project of genius book "Object-oriented Reengineering Patterns"
+_Reengineerg a book about Reengineering_
+
+A migration project of genius book "Object-Oriented Reengineering Patterns".
 
 # Goal
-* Migrate the OORP book to AsciiDoc to enable a community-driven enhancements.
+Migrate the OORP book to AsciiDoc to enable a community-driven enhancements like
+
+-  code examples in a more common language like Java
+-  reproducable code analysis in a notebook format like Jupyter
+-  adding missing patterns that motivate reengineering projects
 
 # Build
 You can use Maven 3 to build a HTML page:
