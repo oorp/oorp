@@ -261,7 +261,7 @@ If forward engineering is about moving from high-level views of requirements and
 
 Figure 1.1 illustrates this idea. _Forward engineering_ can be understood as being a process that moves from high-level and abstract models and artifacts to increasing concrete ones. _Reverse engineering_ reconstructs higher-level models and artifacts from code. _Reengineering_ is a process that transforms one low-level representation to another, _while recreating the higher-level artifacts along the way_.
 
-image:./media/image1.png[image,width=427,height=251]
+image:image1.png[image,width=427,height=251]
 
 Figure 1.1: Forward, reverse and reengineering
 
@@ -370,10 +370,10 @@ Each cluster of patterns is presented as a simple “pattern language” — a s
 
 Setting Direction contains several patterns to help you determine where to focus your reengineering efforts, and make sure you stay on track. First Contact consists of a set of patterns that may be useful when you encounter a legacy system for the first time. Initial Understanding helps you to develop a first simple model of a legacy system, mainly in the form of class diagrams. Detailed Model Capture helps you to develop a more detailed model of a particular component of the system.
 
-image:./media/image2.jpg[image,width=432,height=534]
+image:image2.jpg[image,width=432,height=534]
 
 Figure 1.2: The format of a typical reengineering pattern
-image:./media/image3.jpg[image,width=432,height=271]
+image:image3.jpg[image,width=432,height=271]
 
 Figure 1.3: A map of reengineering pattern clusters
 
@@ -397,7 +397,7 @@ When you start a reengineering project, you will be pulled in many different dir
 * It is easy to get seduced by focussing on the technical problems that interest you the most, rather than what is best for the project.
 * It can be difficult to decide whether to wrap, refactor or rewrite a problematic component of a legacy system. Each of these options will address different risks, and will have different consequences for
 
-image:./media/image4.jpg[image,width=432,height=209]
+image:image4.jpg[image,width=432,height=209]
 
 Figure 2.1: Principles and guidelines to set and maintain direction in reengineering project.
 
@@ -569,7 +569,7 @@ Typically, your new colleagues will fall into three categories. The first catego
 
 Wasting time is the largest risk when you have your first contact with a system, therefore these patterns should be applied during a short time span, say one week. After this week you should grasp the main issues and
 
-image:./media/image5.jpg[image,width=432,height=243]
+image:image5.jpg[image,width=432,height=243]
 
 Figure 3.1: Assess the _feasibility_ of the project during your First Contact with the system.
 
@@ -1050,7 +1050,7 @@ Dave is quite pleased to show you his work and immediately starts to type on his
 
 The next day, you put on your suit and drive off to have a meeting with doctor Mary Johanssen. While introducing yourself, you get the impression that she is not so pleased. You explain the reason of your visit and during the conversation you understand that the doctor is quite worried about your company taking over the _XDoctor_ software. You do your very best to assure her that the main purpose of the demonstration and interview is precisely to learn how your company may best serve the current users and that they do not intend to stop supporting it. Reassured, she starts the actual demonstration. Not surprisingly, the most appreciated feature is the automatic transaction processing with the health insurances, because “it means that I can save on a secretary to do the paperwork”. However, Doctor Johanssen also shows you some other features you were not aware of: built-in e-mail, export to spreadsheet (“I just e-mail this file
 
-image:./media/image6.png[image,width=426,height=183]
+image:image6.png[image,width=426,height=183]
 
 Figure 3.2: The architecture diagram as you inferred it from the discussion with the maintainer.
 
@@ -1223,7 +1223,7 @@ The amount of time you should devote to each of these patterns depends largely o
 
 Therefore, these patterns must be applied on a case-by-case basis.
 
-image:./media/image7.jpg[image,width=432,height=269]
+image:image7.jpg[image,width=432,height=269]
 
 Figure 4.1: Obtain an Initial Understanding of a software system and cast it into a higher-level representation.
 
@@ -1434,11 +1434,11 @@ From a previous code review, you learned that the design is reasonably good, so 
 
 a.  Initial hypothesis where the open questions are inserted as Notes
 
-image:./media/image8.jpg[image,width=432,height=145]
+image:image8.jpg[image,width=432,height=145]
 
 a.  Refined hypothesis after verification against the source code; the modificationsare shown as Notes
 
-image:./media/image9.jpg[image,width=432,height=159]
+image:image9.jpg[image,width=432,height=159]
 
 Figure 4.4: Refining the hypotheses concerning the Euro representation. (a) subclasses for the different currencies; (b) flyweight approach for the currencies
 
@@ -1476,7 +1476,7 @@ Follow-up actions:
 
 The naive approach to design extraction is bottom-up: first build a complete class diagram from source code and afterwards condense it by removing the noise. Unfortunately, the bottom-up approach does not work for large scale systems, because one typically gets a lot of white noise to start from (see for example Figure 4.5, showing an inheritance hierarchy with associations for a medium-sized system). Moreover, such a bottomup approach does not improve your understanding very much, because it forces you to focus on the irrelevant noise instead of the important concepts.
 
-_image:./media/image10.png[image,width=426,height=204]
+_image:image10.png[image,width=426,height=204]
 Figure 4.5: White-noise obtained by a bottom-up design extraction approach. The figure shows a fragment of an inheritance hierarchy augmented with all method invocations and attribute accesses for a medium sized system. The visualization is performed by CodeCrawler [DDL99] [Lan99].
 
 _“We get things wrong before we get things right.”
@@ -1570,7 +1570,7 @@ However, formulas that combine different measurements in a single number should 
 * _Data is tedious to interpret._ To measure the quality of a piece of code, you must collect several measurements. Interpreting and comparing such multi-valued tuples is quite tedious especially when dealing with large software systems. Therefore, use visualizations which allow you to analyze different measurements simultaneously.
 * _Requires expertise._ The interpretation of measurement data is difficult and requires a lot of expertise. Fortunately, part of this expertise is documented in the form of design heuristics (see among others [Rie96] [LK94]) and the rest can be acquired on the job.
 
-_image:./media/image12.png[image,width=257,height=132]
+_image:image12.png[image,width=257,height=132]
 Figure 4.6: Class size overview with node size showing the lines of code and gray value showing the number of instance variables.
 
 [[example-7]]
@@ -1583,7 +1583,7 @@ _Class Size Overview._ As a starter, you get an impression of the raw physical s
 Figure 4.6 shows the checker graph for _XDoctor_. The picture reveals that the class size is distributed quite evenly — which is reassuring — with a few noteworthy exceptions. For instance, there is the class B (with 1495 it is the largest in terms of lines of code) and class L (has most instance variables and second most lines of code). The classes in row Z are exceptional in the sense that they are very small, some of them even empty.
 
 _Class Inheritance._ Next, you get a feeling for the way inheritance is used by studying the various subtrees in the inheritance hierarchy. Therefore, you measure the classes in terms of hierarchy nesting level (HNL) and number of descendant classes (NDC). You include size measurements as well to assess the magnitude of the classes within the inheritance tree. Therefore, you collect the number of methods (NOM), number of instance variables (NIV) and number of lines of code (LOC) as well. You use an _inheritance
-_image:./media/image13.png[image,width=428,height=147]
+_image:image13.png[image,width=428,height=147]
 Figure 4.7: Inheritance tree focussing on class size. The node width shows the number of instance variables, the node height shows the number of methods and the gray value shows the number of code lines.
 
 _tree_ to visualize the various subtrees and the proportion of class sizes inside each of them. All nodes in such a tree have a rectangular shape where the height, width and gray value of each node show three measurements.
@@ -1594,7 +1594,7 @@ _Method Inheritance._ To analyze particular inheritance trees in further detail,
 
 Figure 4.8 shows the A, G and F subtrees identified earlier, but now the height, width and gray value of each node represent NMO, NMA and NME. The root classes are displayed as narrow white rectangles, which is
 
-_image:./media/image14.png[image,width=430,height=131]
+_image:image14.png[image,width=430,height=131]
 Figure 4.8: Inheritance tree focussing on method inheritance. The node width shows the number of methods added, the node height shows the number of methods overridden and the gray value shows the number of methods extended.
 
 normal as root classes cannot override nor extend. As far as the subclasses concerns, you observe two phenomena. On the one hand, the subclasses of A add a lot, yet override very little, which suggests that code reuse is the main purpose of this inheritance tree. On the other hand, the subclasses of F and G override more methods than they add, which suggests a lot of hook methods and an inheritance tree aimed at specializing behavior. Here as well, these assumptions must be verified by code browsing.
@@ -1605,7 +1605,7 @@ To study this correlation relationship one might divide the two measurements. fo
 
 Figure 4.9 shows a correlation graph where the horizontal axis (left to right) represents the number of messages sent and the vertical axis (top to bottom) the number of lines of code. You observe a big cluster in the top left corner where most nodes are superimposed on each other. This is
 
-_image:./media/image15.png[image,width=170,height=261]
+_image:image15.png[image,width=170,height=261]
 Figure 4.9: Correlation graph, with x-position showing the number of messages sent and y-position showing the lines of code.
 
 reassuring because it implies that most methods have fewer than 15 lines of code and 10 messages sent. The exceptions appear at the edges of the picture. For instance, node A is a large method with 99 messages packed on 45 lines of code. Node D (and its neighbors) are also methods where many messages are packed on a single line of code. Via code browsing you see that many of them are initialization methods. At the other side of the diagonal there is node B, which represents a method with 16 lines of code yet no messages sent. Code browsing reveals that it’s a case where the whole method body has been commented out.
@@ -1654,7 +1654,7 @@ Figure 5.1 suggests some possible relationships between the patterns. Tie Code a
 
 Refactor to Understand helps you to expose the design of cryptic code.
 
-image:./media/image16.jpg[image,width=432,height=360]
+image:image16.jpg[image,width=432,height=360]
 
 Figure 5.1: The patterns of Detailed Model Capture help you to expose the design of the software system and keep track of your understanding.
 
@@ -1782,7 +1782,7 @@ Figure 5.2 shows on the top pane all the senders of the flag: message in the Squ
 
 Tie Code and Questions works well in tandem with Refactor to Understand. Questions in the code may often be resolved by refactoring it. Conversely, as you Refactor to Understand, new questions will be raised and can be entered as annotations.
 
-image:./media/image17.jpg[image,width=424,height=273]
+image:image17.jpg[image,width=424,height=273]
 
 Figure 5.2: Finding all senders of a message in Squeak.
 [[refactor-to-understand]]
@@ -2147,7 +2147,7 @@ As shown in Figure 6.1, Write Tests to Enable Evolution is the root of this clus
 
 In order to effectively manage incremental introduction of tests, it is important to Use a Testing Framework to structure and organize suites
 
-image:./media/image18.jpg[image,width=432,height=346]
+image:image18.jpg[image,width=432,height=346]
 
 Figure 6.1: When, why, how and what to test. of tests. The testing framework should support you in designing certain styles of tests. In particular, if you Test the Interface, Not the Implementation of components, by using black-box testing strategies, then your tests will tend to be more useful in the face of system changes. Furthermore, if you can Record Business Rules as Tests, then you will have an effective way to keep the business rules explicitly represented and continuously synchronized with the running system even in the presence of radical changes.
 
@@ -2496,7 +2496,7 @@ JUnit is a popular testing framework for Java, which considerable enhances the b
 
 JUnit manages the reporting of failures and errors with the help of an additional TestResult class. In the design of JUnit, it is an instance of TestResult that actually runs the tests and logs errors or failures. In Figure 6.5 we see a scenario in which a TestCase, in its run method, passes
 
-image:./media/image19.jpg[image,width=432,height=280]
+image:image19.jpg[image,width=432,height=280]
 
 Figure 6.4: JUnit is a popular testing framework for Java that offers much more flexibility than the minimal scheme described above.
 
@@ -2565,11 +2565,11 @@ To run the tests, we can start up any one of a number of _test runner_ classes p
 
 This particular test runner expects you to type in the name of the test class. You may then _run_ the tests defined by this class. The test runner will look for the suite method and use it to build an instance of TestSuite. If you do not provide a static suite method, the test runner will automatically build a test suite assuming that all the methods named test* are test cases. The test runner then runs the resulting test suite. The interface will report
 
-_image:./media/image20.jpg[image,width=345,height=265]
+_image:image20.jpg[image,width=345,height=265]
 
 Figure 6.6: An instance of java.ui.TestRunner.
 
-image:./media/image21.jpg[image,width=345,height=266]
+image:image21.jpg[image,width=345,height=266]
 
 Figure 6.7: A successful test run.
 how many tests succeeded (see Figure 6.7). A successful test run will show a green display. If any individual test fails, the display will be red, and details of the test case leading to the failure will be given.
@@ -2909,7 +2909,7 @@ It is not enough to reengineer a legacy system and then deploy it. In fact, if y
 
 165
 
-image:./media/image22.jpg[image,width=432,height=256]
+image:image22.jpg[image,width=432,height=256]
 
 Figure 7.1: How, why and whither to migrate legacy systems.
 of the users, and you must adopt a strategy for migrating gradually and painlessly from the existing system, _while it is still being deployed_, to the new system.
@@ -3734,7 +3734,7 @@ Duplicated code arises for a variety of reasons:
 
 From a reengineering perspective, usually people know whether or not a system suffers from duplication. First, the development team, or the manager will tell you. Second, there are normally some clear signs that duplication has been practiced in a project: for example, two developers cannot develop four millions of line of code in less than eight months without copying and pasting existing code. While analyzing the system you will also identify duplicated code by accident. There is a major difference, however, between knowing that a system contains duplicated code, and knowing exactly which parts have been duplicated.
 
-image:./media/image23.jpg[image,width=345,height=183]
+image:image23.jpg[image,width=345,height=183]
 
 Figure 8.1: Two patterns to support Detecting Duplicated Code.
 
@@ -3852,9 +3852,10 @@ Lines:fastid=NULL;;constchar*fidptr=getFastid();;if(fidptr!=NULL); intl=strlen(f
 Below is a sample of a perl script that will do the trick.
 #! /usr/bin/env perl --w
 
-# duplocForCPP.pl -- detect duplicated lines of code (algorithm only) # Synopsis: duplocForCPP.pl filename ...
+# duplocForCPP.pl -- detect duplicated lines of code (algorithm only) 
+# Synopsis: duplocForCPP.pl filename ...
 
-# Takes code (or other) files and collects all line numbers of lines # equal to each other within these files. The algorithm is linear (in # space and time) to the number of lines in input.
+# Takes code (or other) files and collects all line numbers of lines equal to each other within these files. The algorithm is linear (in space and time) to the number of lines in input.
 
 # Output: Lists of numbers of equal lines.
 
@@ -3923,7 +3924,7 @@ $totalLines++;
 
 |
 
-* *
+*
 
 [cols="",options="header",]
 |
@@ -4054,7 +4055,7 @@ If you want to analyze two files A and B:
 
 To analyze the duplication inside a single file, plot the elements of that file on both axes.
 
-image:./media/image24.png[image,width=425,height=135]
+image:image24.png[image,width=425,height=135]
 
 Figure 8.2: Possible sequences of dot and their associated interpretations.
 
@@ -4082,7 +4083,7 @@ Some interesting configurations formed by the dots in the matrices are the follo
 
 Before After
 
-_image:./media/image25.png[image,width=282,height=282]Before
+_image:image25.png[image,width=282,height=282]Before
 
 After
 
@@ -4107,12 +4108,12 @@ In Figure 8.3 we see a dotplot of two versions of a piece of software, before an
 
 A B
 
-A image:./media/image26.jpg[image,width=407,height=171]
+A image:image26.jpg[image,width=407,height=171]
 Figure 8.4: A Python file A being compared to itself and to a second file B.
 
 The bottom left and top right squares are mirror images of each other. They tell us how the before and after files have been reorganized. Since there is no strong diagonal, this tells us that significant reorganization has taken place. The diagonal stripes show us which parts of the old version have survived and where they appear in the new version. From the dot-
 
-image:./media/image27.jpg[image,width=317,height=317]
+image:image27.jpg[image,width=317,height=317]
 
 Figure 8.5: Dotplots produced by four switch statements.
 plot alone, we can guess that about half of the code has survived, and another half of the code has been significantly rewritten.
@@ -4162,7 +4163,7 @@ Data containers lead to violations of the _Law of Demeter_ (LOD) [LHR88]. In a n
 
 Violations of the Law of Demeter typically take the form of _navigation code_ in which an _indirect client_ accesses an _indirect provider_ by accessing either an instance variable or an acquaintance of an _intermediate provider_. The indirect client and provider are thereby unnecessarily coupled, making future enhancements more difficult to realize (Figure 9.2). The intermediate provider may take the form of a data container or opens its encapsulation by providing accessor methods. Designs with many data containers present often suffer from complex navigation code in which indirect clients may have to navigate through a chain of intermediates to reach the indirect provider.
 
-image:./media/image28.jpg[image,width=432,height=107]
+image:image28.jpg[image,width=432,height=107]
 
 Figure 9.1: An indirect client violates the Law of Demeter by navigating through an intermediate provider to an indirect provider, unnecessarily coupling the two.
 
@@ -4176,7 +4177,7 @@ This cluster provides a number of patterns to eliminate data containers and god 
 
 * Move Behavior Close to Data [p. 221] moves behavior defined in
 
-image:./media/image29.jpg[image,width=432,height=145]
+image:image29.jpg[image,width=432,height=145]
 
 Figure 9.2: Data containers are the clearest sign of misplaced responsibilities. These three patterns redistribute responsibilities by moving behavior close to data.
 
@@ -4211,7 +4212,7 @@ Move behavior defined by indirect clients to the container of the data on which 
 
 * Data containers, _i.e._, classes defining mostly public accessor methods and few behavior methods (_i.e._, the number of methods is approximately 2 times larger than the number of attributes.
 
-image:./media/image30.jpg[image,width=432,height=250]
+image:image30.jpg[image,width=432,height=250]
 
 Figure 9.3: Classes that were mere data containers are transformed into real service providers.
 
@@ -4283,7 +4284,7 @@ _Mapping classes_ are classes used to represent mappings between objects and the
 
 One of the recurring complaints of the customers is that it takes too much time to change the reports generated by the information system. By talking to the maintainers you learn that they find generating the reports quite boring. “Its’s always the same code you have to write,” says Chris, one
 
-image:./media/image31.jpg[image,width=432,height=133]
+image:image31.jpg[image,width=432,height=133]
 
 Figure 9.4: The Payroll and Telephone classes access the internal representation of the class Employee to print a representation.
 
@@ -4423,7 +4424,7 @@ Finally, verify which other methods refer to the name(), address() and telephone
 
 After applying Move Behavior Close to Data the class Employee now provides a printLabel method which takes one argument to represent the different separators (see Figure 9.5). This is a better situation because now
 
-image:./media/image32.jpg[image,width=432,height=150]
+image:image32.jpg[image,width=432,height=150]
 
 Figure 9.5: The Payroll class uses the public interface of the class Employee to print a representation of Employee; data accessors became private.
 
@@ -4545,7 +4546,7 @@ More sophisticated matching expressions can reduce the noise produced by the par
 
 _AST Matching._ If you have a way to express tree matching, you can detect navigation code. For example, the Rewrite Rule Editor that comes with the Refactoring Browser [RBJ97] can detect navigation code using the pattern
 
-_image:./media/image33.png[image,width=342,height=273]
+_image:image33.png[image,width=342,height=273]
 Figure 9.6: Chains of data containers can be converted into service providers, thereby eliminating navigation code and reducing coupling between classes.
 
 ’@object ’mess1 ’mess2 ’mess3. To narrow the analysis of the results you should only consider messages that belong to the domain objects and eliminate all the method selectors of libraries objects like (isNil, not, class,
@@ -4756,7 +4757,7 @@ A god class may be recognized in various ways:
 
 The solution relies on incrementally moving behavior away from the god class. During this process, data containers will become more object-like by acquiring the functionality that the god class was performing on their data. Some new classes will also be extracted from the god class.
 
-_image:./media/image34.png[image,width=340,height=347]
+_image:image34.png[image,width=340,height=347]
 Figure 9.8: A god class is refactored in two stages, first by redistributing responsibilities to data containers, or by spawning off new classes, until there is nothing left but a facade, and second by removing the facade.
 
 The following steps describe how this process ideally works. Note, however, that god classes can vary greatly in terms of their internal structure, so different techniques may be used to implement the transformation steps. Furthermore, it should be clear that a god class cannot be cured in one shot, so a safe way to proceed is to first transform a god class into a lightweight god class, then into a Facade [p. 293] that delegates behavior to its acquaintances. Finally, clients are redirected to the refactored data containers and the other new objects, and the Facade can be removed. The process is illustrated in figure 39.
@@ -4851,7 +4852,7 @@ This pattern language consists of six patterns which address the most common pro
 
 Figure 10.1 summarizes the relationships and the differences between the patterns.
 
-image:./media/image35.jpg[image,width=432,height=202]
+image:image35.jpg[image,width=432,height=202]
 
 Figure 10.1: Relationships between the patterns constituting Transform Conditionals to Polymorphism.
 
@@ -5120,7 +5121,7 @@ x.getClass().getName().equals(y.getClass().getName())
 4.  When all methods have been moved, each case of the conditional consists of a call to the new method, so replace the entire conditional by a single call to the new method.
 5.  Consider making the method abstract in the provider’s root. Alternatively implement suitable default behavior here.
 
-_image:./media/image36.png[image,width=426,height=351]
+_image:image36.png[image,width=426,height=351]
 Figure 10.6: Transformation of explicit type check used to determine which methods of a client should be invoked into polymorphic method calls.
 
 [[other-steps-to-consider]]
@@ -5530,7 +5531,7 @@ Null tests may take different forms, depending on the programming language and t
 
 Fowler discusses in detail the necessary refactoring steps [FBB^+^99].
 
-image:./media/image37.jpg[image,width=432,height=220]
+image:image37.jpg[image,width=432,height=220]
 
 Figure 10.10: Transformation from a situation based on explicit test of null value to a situation where a Null Object is introduced.
 
