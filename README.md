@@ -23,6 +23,8 @@ Many thanks to the original authors of the book
 
 for writing down all the important stuff and making this remix happen!
 
+**The whole content was created by them.** As of today, this project only makes the book's content available for future enhancements.
+
 # Build
 You can use Maven 3 to build a HTML page:
 ```
