@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/oorp/oorp.svg?branch=master)](https://travis-ci.org/oorp/oorp)
+
 _Reengineering a book about Reengineering_
 
 A migration project of genius book "Object-Oriented Reengineering Patterns".
