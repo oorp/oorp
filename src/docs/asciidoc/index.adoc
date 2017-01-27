@@ -25,5 +25,5 @@ include::09_redistribute-responsibilities.adoc[]
 include::10_transform_conditionals_to_polymorphism.adoc[]
 // Appendices
 include::11_thumbnail_patterns.adoc[]
-include::12_bibliography.adoc
-include::13_index.adoc
+include::12_bibliography.adoc[]
+//include::13_index.adoc[]

@@ -51,7 +51,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 
 *Also Known As:* Abstract Instance Variable [Rob99].
 
-*Intent* _There is a public field. Make it private and provide accessors.
+*Intent* _There is a public field. Make it private and provide accessors._
+
 *Source:* _Refactoring: Improving the Design of Existing Code_ [FBB^+^99].
 
 *Referenced from:* Eliminate Navigation Code [p. 230].
@@ -59,7 +60,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.2.2-extract-method]]
 ==== A.2.2 Extract Method
 
-*Intent* _You have a code fragment that can be grouped together. Turn the fragment into a method whose name explains the purpose of the method.
+*Intent* _You have a code fragment that can be grouped together. Turn the fragment into a method whose name explains the purpose of the method._
+
 *Source:* _Refactoring: Improving the Design of Existing Code_ [FBB^+^99].
 
 *Referenced from:* Refactor to Understand [p. 115], Visualize Code as Dotplots [p. 210], Move Behavior Close to Data [p. 221]
@@ -67,7 +69,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.2.3-move-method]]
 ==== A.2.3 Move Method
 
-*Intent* _A method is, or will be, using or used by more features of another class than the class on which it is defined. Create a new method with a similar body in the class it uses most. Either turn the old method into a simple delegation, or remove it altogether.
+*Intent* _A method is, or will be, using or used by more features of another class than the class on which it is defined. Create a new method with a similar body in the class it uses most. Either turn the old method into a simple delegation, or remove it altogether._
+
 *Source:* _Refactoring: Improving the Design of Existing Code_ [FBB^+^99].
 
 *Referenced from:* Refactor to Understand [p. 115], Move Behavior Close to Data [p. 221]
@@ -75,7 +78,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.2.4-rename-attribute]]
 ==== A.2.4 Rename Attribute
 
-*Intent* _Rename an instance variable and update all references to it.
+*Intent* _Rename an instance variable and update all references to it._
+
 *Source:* _Practical Analysis for Refactoring_ [Rob99].
 
 *Referenced from:* Refactor to Understand [p. 115].
@@ -83,7 +87,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.2.5-rename-method]]
 ==== A.2.5 Rename Method
 
-*Intent* _The name of a method does not reveal its purpose. Change the name of the method.
+*Intent* _The name of a method does not reveal its purpose. Change the name of the method._
+
 *Source:* _Refactoring: Improving the Design of Existing Code_ [FBB^+^99].
 
 *Referenced from:* Refactor to Understand [p. 115]
@@ -91,7 +96,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.2.6-replace-conditional-with-polymorphism]]
 ==== A.2.6 Replace Conditional with Polymorphism
 
-*Intent* _You have a conditional that chooses different behavior depending on the type of an object. Move each leg of the conditional to an overriding method in a subclass. Make the original method abstract.
+*Intent* _You have a conditional that chooses different behavior depending on the type of an object. Move each leg of the conditional to an overriding method in a subclass. Make the original method abstract._
+
 *Source:* _Refactoring: Improving the Design of Existing Code_ [FBB^+^99].
 
 *Referenced from:* Transform Client Type Checks [p. 257]
@@ -103,6 +109,7 @@ There are many patterns that are not specifically concerned with reengineering, 
 ==== A.3.1 Abstract Factory
 
 *Intent* _Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Look for the Contracts [p. 123], Transform Client Type Checks [p. 257].
@@ -110,7 +117,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.2-adapter]]
 ==== A.3.2 Adapter
 
-*Intent* _Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces.
+*Intent* _Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces._
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Present the Right Interface [p. 187], Move Behavior Close to Data [p. 221].
@@ -118,7 +126,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.3-facade]]
 ==== A.3.3 Facade
 
-*Intent* _Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+*Intent* _Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use._
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Eliminate Navigation Code [p. 230], Split Up God Class [p. 239].
@@ -126,7 +135,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.4-factory-method]]
 ==== A.3.4 Factory Method
 
-*Intent* _Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+*Intent* _Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses._
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Look for the Contracts [p. 123]
@@ -134,7 +144,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.5-flyweight]]
 ==== A.3.5 Flyweight
 
-*Intent* _Use sharing to support large numbers of fine-grained objects efficiently.
+*Intent* _Use sharing to support large numbers of fine-grained objects efficiently._
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Speculate about Design [p. 87]
@@ -142,7 +153,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.6-null-object]]
 ==== A.3.6 Null Object
 
-*Intent* _A Null Object provides a surrogate for another object that shares the same interface but does nothing. Thus, the Null Object encapsulates the implementation decisions of how to do nothing and hides those details from its collaborators
+*Intent* _A Null Object provides a surrogate for another object that shares the same interface but does nothing. Thus, the Null Object encapsulates the implementation decisions of how to do nothing and hides those details from its collaborators_
+
 *Source:* _Null Object_ [Woo98].
 
 *Referenced from:* Introduce Null Object [p. 274].
@@ -161,7 +173,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.8-singleton]]
 ==== A.3.8 Singleton
 
-*Intent* _Ensure a class only has one instance, and provide a global point of access to it.
+*Intent* _Ensure a class only has one instance, and provide a global point of access to it._
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Read all the Code in One Hour [p. 45].
@@ -169,7 +182,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.9-state]]
 ==== A.3.9 State
 
-*Intent* _Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
+*Intent* _Allow an object to alter its behavior when its internal state changes. The object will appear to change its class._
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Factor out State [p. 266].
@@ -177,7 +191,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.10-state-patterns]]
 ==== A.3.10 State Patterns
 
-*Intent* _The State Patterns pattern language refines and clarifies the State Pattern.
+*Intent* _The State Patterns pattern language refines and clarifies the State Pattern._
+
 *Source:* _State Patterns_ [DA97].
 
 *Referenced from:* Factor out State [p. 266].
@@ -186,6 +201,7 @@ There are many patterns that are not specifically concerned with reengineering, 
 ==== A.3.11 Strategy
 
 *Intent* _Define a family of algorithms, encapsulate each one in a separate class, and define each class with the same interface so they can be interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Factor out Strategy [p. 270].
@@ -193,7 +209,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.12-template-method]]
 ==== A.3.12 Template Method
 
-*Intent* _Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm’s structure.
+*Intent* _Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm’s structure._
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Look for the Contracts [p. 123].
@@ -201,7 +218,8 @@ There are many patterns that are not specifically concerned with reengineering, 
 [[a.3.13-visitor]]
 ==== A.3.13 Visitor
 
-*Intent* _Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.
+*Intent* _Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates._
+
 *Source:* _Design Patterns_ [GHJV95].
 
 *Referenced from:* Move Behavior Close to Data [p. 221].
