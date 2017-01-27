@@ -11,8 +11,9 @@ Most of the patterns concerned with Detailed Model Capture entail considerably m
 Although you already have an impression of the system, there are several forces at play that may make it difficult to extract a more detailed model:
 
 * _Details matter._ As argued by Brooks [Bro87], software engineering is different from other engineering disciplines because of the inherent lack of abstraction barriers. Other engineering disciplines rely on the laws of nature to hide irrelevant details, but software engineering must build on less solid foundations. _Consequently, it is essential to pay attention to the details._ The only question is how to filter out those details that do not matter, because you cannot possible investigate everything.
-* Design remains implicit._ As you read the code, many design decisions will become apparent to you, but it will not be clear why and how these decisions were made. In particular, it will be hard to tell which design decisions were easy to make, and which of them created a lot of grief. Nevertheless, such knowledge is crucial during a reengineering project because you want to avoid making the same mistakes over and over again. _Consequently, once you discover the underlying design rationale, make sure that it is properly recorded._ This way, your successors will be able to build on your discoveries rather than be forced to reinvent the wheel.
-* _Design does evolve._ Change is an essential ingredient of a successful system, certainly in object-oriented development processes with their emphasis on iterative development. As a consequence, design documents will always be out-of date with respect to the actual situation. However, this also implies that change itself is the key to understand how and why the design of a system has evolved the way it is. _Consequently, assume that important design issues will be reflected in the source code and in the way this code has changed over time.* _Static structure versus Dynamic behavior._ Object-oriented source code tells you which classes are defined, and how they are arranged in a class hierarchy. It is much harder to see which objects are instantiated at run-time, and how they collaborate to support the system. On a fine-grained level however, the latter is much more relevant than the former, especially due to the use of polymorphism. _Consequently, to extract the detailed design one must inevitably study the dynamic behavior.
+* _Design remains implicit._ As you read the code, many design decisions will become apparent to you, but it will not be clear why and how these decisions were made. In particular, it will be hard to tell which design decisions were easy to make, and which of them created a lot of grief. Nevertheless, such knowledge is crucial during a reengineering project because you want to avoid making the same mistakes over and over again. _Consequently, once you discover the underlying design rationale, make sure that it is properly recorded._ This way, your successors will be able to build on your discoveries rather than be forced to reinvent the wheel.
+* _Design does evolve._ Change is an essential ingredient of a successful system, certainly in object-oriented development processes with their emphasis on iterative development. As a consequence, design documents will always be out-of date with respect to the actual situation. However, this also implies that change itself is the key to understand how and why the design of a system has evolved the way it is. _Consequently, assume that important design issues will be reflected in the source code and in the way this code has changed over time.
+* _Static structure versus Dynamic behavior._ Object-oriented source code tells you which classes are defined, and how they are arranged in a class hierarchy. It is much harder to see which objects are instantiated at run-time, and how they collaborate to support the system. On a fine-grained level however, the latter is much more relevant than the former, especially due to the use of polymorphism. _Consequently, to extract the detailed design one must inevitably study the dynamic behavior._
 
 [[overview-3]]
 === Overview
@@ -23,7 +24,7 @@ Figure 5.1 suggests some possible relationships between the patterns. Tie Code a
 
 Refactor to Understand helps you to expose the design of cryptic code.
 
-image:image16.jpg[image,width=432,height=360]
+image:media/image16.jpg[image,width=432,height=360]
 
 Figure 5.1: The patterns of Detailed Model Capture help you to expose the design of the software system and keep track of your understanding.
 
@@ -56,7 +57,11 @@ _This problem is difficult because:_
 * Your understanding is a moving target, so it is hard to keep a written document up-to-date.
 * If you don’t write down your questions and insights as soon as they occur to you, you will not be able to keep track of them.
 * You want to share your knowledge with the team to maximize its value.
-* Logging questions and answers in log files, bulletin boards or email distribution lists may be convenient for disseminating knowledge within the team, and may provide a convenient searchable history of the team’s understanding, but when you are looking at a piece of code, it will be hard to tell what questions and answers pertain to it. _Yet, solving this problem is feasible because:* You can annotate the code, and therefore record your understanding physically close to the code element it refers to.
+* Logging questions and answers in log files, bulletin boards or email distribution lists may be convenient for disseminating knowledge within the team, and may provide a convenient searchable history of the team’s understanding, but when you are looking at a piece of code, it will be hard to tell what questions and answers pertain to it.
+
+_Yet, solving this problem is feasible because:_
+
+* You can annotate the code, and therefore record your understanding physically close to the code element it refers to.
 
 [[solution-8]]
 ==== Solution
@@ -154,13 +159,14 @@ Figure 5.2 shows on the top pane all the senders of the flag: message in the Squ
 
 Tie Code and Questions works well in tandem with Refactor to Understand. Questions in the code may often be resolved by refactoring it. Conversely, as you Refactor to Understand, new questions will be raised and can be entered as annotations.
 
-image:image17.jpg[image,width=424,height=273]
+image:media/image17.jpg[image,width=424,height=273]
 
 Figure 5.2: Finding all senders of a message in Squeak.
 [[refactor-to-understand]]
 === 5.2 Refactor to Understand
 
-*Intent* _Iteratively refactor a part of a software system in order to validate and reflect your understanding of how it works.
+*Intent* _Iteratively refactor a part of a software system in order to validate and reflect your understanding of how it works._
+
 [[problem-9]]
 ==== Problem
 
@@ -374,7 +380,7 @@ This idiom is heavily used in Java by classes that define multiple constructors.
 [[tradeoffs-11]]
 ==== Tradeoffs
 
-*Pros*
+===== Pros
 
 • _Reliable._ You can trust the source code more than the documentation.
 

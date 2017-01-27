@@ -1,7 +1,7 @@
 [[reengineering-patterns]]
 == 1. Reengineering Patterns
 
-*1.1 Why do we Reengineer?*
+=== 1.1 Why do we Reengineer?
 
 A legacy is something _valuable_ that you have _inherited_. Similarly, legacy software is valuable software that you have inherited. The fact you have inherited it may mean that it is somewhat old-fashioned. It may have been developed using an outdated programming language, or an obsolete development method. Most likely it has changed hands several times, and shows signs of many modifications and adaptations.
 
@@ -21,11 +21,11 @@ The specific reasons that you might want to reengineer a software system can var
 Though there may be many different reasons for reengineering a system, as we shall see, however, the actual technical problems with legacy software are often very similar. It is this fact that allows us to use some very general techniques to do at least part of the job of reengineering.
 
 [[recognizing-the-need-to-reengineer]]
-=== Recognizing the need to reengineer
+==== Recognizing the need to reengineer
 
 How do you know when you have a legacy problem?
 
-Common wisdom says, “If it ain’t broke, don’t fix it.” This attitude is often taken as an excuse not to touch any piece of software that is performing an important function and seems to be doing it well. The problem with this approach is that it fails to recognize that there are many ways in which something may be “broken”. From a functional point of view, something is broken only if it no longer delivers the function it is designed to perform. From a maintenance point of view, however, a piece of software is broken _if it can no longer be maintained.
+Common wisdom says, “If it ain’t broke, don’t fix it.” This attitude is often taken as an excuse not to touch any piece of software that is performing an important function and seems to be doing it well. The problem with this approach is that it fails to recognize that there are many ways in which something may be “broken”. From a functional point of view, something is broken only if it no longer delivers the function it is designed to perform. From a maintenance point of view, however, a piece of software is broken _if it can no longer be maintained_.
 So how can you tell that your software is going to break very soon? Fortunately there are many warning signs that tell you that you are headed towards trouble. The symptoms listed below usually do not occur in isolation but several at a time.
 
 *Obsolete or no documentation.* Obsolete documentation is a clear sign of a legacy system that has undergone many changes. Absence of documentation is a warning sign that problems are on the horizon, as soon as the original developers leave the project.
@@ -97,7 +97,7 @@ If forward engineering is about moving from high-level views of requirements and
 
 Figure 1.1 illustrates this idea. _Forward engineering_ can be understood as being a process that moves from high-level and abstract models and artifacts to increasing concrete ones. _Reverse engineering_ reconstructs higher-level models and artifacts from code. _Reengineering_ is a process that transforms one low-level representation to another, _while recreating the higher-level artifacts along the way_.
 
-image:image1.png[image,width=427,height=251]
+image:media/image1.png[image,width=427,height=251]
 
 Figure 1.1: Forward, reverse and reengineering
 
@@ -206,10 +206,10 @@ Each cluster of patterns is presented as a simple “pattern language” — a s
 
 Setting Direction contains several patterns to help you determine where to focus your reengineering efforts, and make sure you stay on track. First Contact consists of a set of patterns that may be useful when you encounter a legacy system for the first time. Initial Understanding helps you to develop a first simple model of a legacy system, mainly in the form of class diagrams. Detailed Model Capture helps you to develop a more detailed model of a particular component of the system.
 
-image:image2.jpg[image,width=432,height=534]
+image:media/image2.jpg[image,width=432,height=534]
 
 Figure 1.2: The format of a typical reengineering pattern
-image:image3.jpg[image,width=432,height=271]
+image:media/image3.jpg[image,width=432,height=271]
 
 Figure 1.3: A map of reengineering pattern clusters
 

@@ -48,7 +48,7 @@ As shown in Figure 6.1, Write Tests to Enable Evolution is the root of this clus
 
 In order to effectively manage incremental introduction of tests, it is important to Use a Testing Framework to structure and organize suites
 
-image:image18.jpg[image,width=432,height=346]
+image:media/image18.jpg[image,width=432,height=346]
 
 Figure 6.1: When, why, how and what to test. of tests. The testing framework should support you in designing certain styles of tests. In particular, if you Test the Interface, Not the Implementation of components, by using black-box testing strategies, then your tests will tend to be more useful in the face of system changes. Furthermore, if you can Record Business Rules as Tests, then you will have an effective way to keep the business rules explicitly represented and continuously synchronized with the running system even in the presence of radical changes.
 
@@ -170,7 +170,7 @@ Tests represent confidence in a system, because they specify how parts of the sy
 
 _“... testing simply exposes the presence of flaws in a program; it cannot be used to verify the absence of flaws. It can increase your confidence that a program is correct”_
 
-#FIXME figure missing
+//FIXME figure missing
 
 Figure 6.2: Automated tests are the _foundation_ for reengineering. They establish your confidence in the system, reduce risks, and improve confidence in your ability to change the system.
 
@@ -253,7 +253,7 @@ Introduce tests incrementally for parts of the system you are working on.
 [[example-9]]
 ==== Example
 
-#FIXME figure missing
+//FIXME figure missing
 
 Figure 6.3: Introduce tests for the parts of the system you intend to change.
 
@@ -330,7 +330,7 @@ JUnit is a popular testing framework for Java, which considerable enhances the b
 
 JUnit manages the reporting of failures and errors with the help of an additional TestResult class. In the design of JUnit, it is an instance of TestResult that actually runs the tests and logs errors or failures. In Figure 6.5 we see a scenario in which a TestCase, in its run method, passes
 
-image:image19.jpg[image,width=432,height=280]
+image:media/image19.jpg[image,width=432,height=280]
 
 Figure 6.4: JUnit is a popular testing framework for Java that offers much more flexibility than the minimal scheme described above.
 
@@ -352,7 +352,7 @@ The instance variables of the test class will hold the fixture - the actual test
 private Hashtable boss; private String joe = "Joe";
 ----
 
-#FIXME figure missing
+//FIXME figure missing
 Figure 6.5: In JUnit, tests are actually run by an instance of TestResult, which invokes the runBare template method of a TestCase. The user only needs to provide the setUp() and tearDown() methods, and the test method to be invoked by runTest().
 
 [source,java]
@@ -414,16 +414,17 @@ The test case class should be compiled, together with any class it depends on.
 
 To run the tests, we can start up any one of a number of _test runner_ classes provided by the JUnit framework, for instance junit.ui.TestRunner (see Figure 6.6).
 
-This particular test runner expects you to type in the name of the test class. You may then _run_ the tests defined by this class. The test runner will look for the suite method and use it to build an instance of TestSuite. If you do not provide a static suite method, the test runner will automatically build a test suite assuming that all the methods named test* are test cases. The test runner then runs the resulting test suite. The interface will report
+This particular test runner expects you to type in the name of the test class. You may then _run_ the tests defined by this class. The test runner will look for the suite method and use it to build an instance of TestSuite. If you do not provide a static suite method, the test runner will automatically build a test suite assuming that all the methods named test* are test cases. The test runner then runs the resulting test suite.
 
-_image:image20.jpg[image,width=345,height=265]
+image:media/image20.jpg[image,width=345,height=265]
 
 Figure 6.6: An instance of java.ui.TestRunner.
 
-image:image21.jpg[image,width=345,height=266]
+image:media/image21.jpg[image,width=345,height=266]
 
 Figure 6.7: A successful test run.
-how many tests succeeded (see Figure 6.7). A successful test run will show a green display. If any individual test fails, the display will be red, and details of the test case leading to the failure will be given.
+
+The interface will report how many tests succeeded (see Figure 6.7). A successful test run will show a green display. If any individual test fails, the display will be red, and details of the test case leading to the failure will be given.
 
 [[rationale-11]]
 ==== Rationale

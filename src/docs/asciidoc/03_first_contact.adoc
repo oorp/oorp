@@ -12,21 +12,24 @@ It is surprising how often reengineering projects get started. Not only does it 
 
 All the patterns in this cluster can be applied to the very early stages of a reengineering project: you’re facing a system that is completely new for you, and within a few days you must determine whether something can be done with it and present a plan how to proceed. Making such an initial assessment is difficult, however, because you quickly need accurate results while considering the long-term effects of your decisions. To deal with the inherent conflict between quick, accurate and longer term effects, the patterns in this cluster must resolve the following forces.
 
-* _Legacy systems are large and complex._ Scale is always an issue when dealing with legacy systems footnote:[During the FAMOOS project we faced systems ranging between 500.000 lines of C++ and 2.5 million lines of Ada.]. However, there is only so much a single reengineering team can do and when the legacy system is too big or too complex you can’t do the job in one shot. _Consequently, split the system into manageable pieces, where a manageable piece is one you can handle with a single reengineering team.
-How much a single team can manage varies with the goal of the reengineering project, the state of the original system, the experience and skills in your team and the culture in your organization. Our teams consisted of three to five persons and they could handle between 500.000 and a million lines of code. However, these figures will certainly have to be adapted for the reengineering project you are facing. As a rule of the thumb, assume that a single team can reengineer as much code as they can write from scratch. Improve your estimates during the reengineering project by keeping logs of how much your team actually reengineered.
-
+* _Legacy systems are large and complex._ Scale is always an issue when dealing with legacy systems footnote:[During the FAMOOS project we faced systems ranging between 500.000 lines of C++ and 2.5 million lines of Ada.]. However, there is only so much a single reengineering team can do and when the legacy system is too big or too complex you can’t do the job in one shot. _Consequently, split the system into manageable pieces, where a manageable piece is one you can handle with a single reengineering team._ +
++
+How much a single team can manage varies with the goal of the reengineering project, the state of the original system, the experience and skills in your team and the culture in your organization. Our teams consisted of three to five persons and they could handle between 500.000 and a million lines of code. However, these figures will certainly have to be adapted for the reengineering project you are facing. As a rule of the thumb, assume that a single team can reengineer as much code as they can write from scratch. Improve your estimates during the reengineering project by keeping logs of how much your team actually reengineered. +
++
 If you need to split the code up, stay as close as possible to current system structure and the organization of the maintenance team. Once you have a good understanding of the system structure, consider alternatives which are better suited for the project goal.
 
 * _Time is scarce._ Wasting time early on in a project has severe consequences later on. This is especially relevant during reverse engineering, because there you feel uncertain and then it is tempting to start an activity that will keep you busy for a while instead of addressing the root of the problem. _Consequently, consider time as your most precious resource._ Therefore, defer all time-consuming activities until later and use the first days of the project to assess the feasibility of the project’s goals. All patterns in this cluster are meant to quickly identify the opportunities and risks for your project and as such will help you set the overall direction of the project.
 * _First impressions are dangerous._ Making important decisions based on incomplete knowledge implies that there is a chance you will make the wrong decision. There is no way to avoid that risk during your first contact with a system, however you can minimize its impact if you _always double-check your sources_.
-* _People have different agendas._ Normally, you will join a group of people where several members will have lots of experience with the system to be reengineered. Perhaps members of the original development team are still available or maybe the reengineering team includes persons who have been maintaining the system for some time. At least there will be end users and managers who believe enough in this system to request a reengineering project. You are supposed to complement the team with your reengineering skills and expertise, hence you should know who you are dealing with.
+* _People have different agendas._ Normally, you will join a group of people where several members will have lots of experience with the system to be reengineered. Perhaps members of the original development team are still available or maybe the reengineering team includes persons who have been maintaining the system for some time. At least there will be end users and managers who believe enough in this system to request a reengineering project. You are supposed to complement the team with your reengineering skills and expertise, hence you should know who you are dealing with.+
++
+Typically, your new colleagues will fall into three categories. The first category are the _faithful_, the people who believe that reengineering is necessary and who thrust that you are able to (help them) do it. The second is the category of the _sceptical_, who believe this whole reengineering business is just a waste of time either because they want to protect their jobs or either because they think the whole project should start again from scratch. The third category is the category of the _fence sitters_, who do not have a strong opinion on whether this reengineering will pay off, so they just wait and see what happens. _Consequently, in order to make the project a success, you must keep convincing the faithful, gain credit with the fence sitters and be wary of the sceptics._
 
-Typically, your new colleagues will fall into three categories. The first category are the _faithful_, the people who believe that reengineering is necessary and who thrust that you are able to (help them) do it. The second is the category of the _sceptical_, who believe this whole reengineering business is just a waste of time either because they want to protect their jobs or either because they think the whole project should start again from scratch. The third category is the category of the _fence sitters_, who do not have a strong opinion on whether this reengineering will pay off, so they just wait and see what happens. _Consequently, in order to make the project a success, you must keep convincing the faithful, gain credit with the fence sitters and be wary of the sceptics.[[overview-1]]
+[[overview-1]]
 === Overview
 
 Wasting time is the largest risk when you have your first contact with a system, therefore these patterns should be applied during a short time span, say one week. After this week you should grasp the main issues and
 
-image:image5.jpg[image,width=432,height=243]
+image:media/media/image5.jpg[image,width=432,height=243]
 
 Figure 3.1: Assess the _feasibility_ of the project during your First Contact with the system.
 
@@ -91,6 +94,7 @@ These questions help to understand the organization of the maintenance process a
 * Who was part of the development/maintenance team during the course of years? How did they join/leave the project? How did this affect the release history of the system?
 
 These are questions which directly address the history of the legacy system. It is a good idea to ask about persons because people generally have a good recollection of former colleagues. By afterwards asking how they joined or left the project, you get a sense for the political context as well.
+
 * How good is the code? How trustworthy is the documentation?
 
 This question is especially relevant to see how well the maintenance team itself can assess the state of the system. Of course you will have to verify their claims yourself afterwards (see Read all the Code in One Hour and Skim the Documentation).
@@ -138,7 +142,7 @@ After the discussion, you make a mental note to check the source code to assess 
 Accepting the premise that the sociological issues concerning a software project are far more important then the technological ones, any reengineering project must at least know the political context of the system under study.
 
 _“Organizations which design systems are constrained to produce designs which are copies of the communications structure of these organizations.”
-— Melvin Conway, [Con68]
+— Melvin Conway, [Con68]_
 
 Conway’s law is often paraphrased as: “If you have 4 groups working on a compiler; you’ll get a 4-pass compiler”
 
@@ -157,9 +161,10 @@ While talking with the maintainers, you should be aware that software maintenanc
 
 During our experience with reengineering projects we made it a habit to kick-off the project during a meeting with the maintenance team. Only in retrospect did we understand how crucial such a meeting is to build up the trust required for the rest of the project. We learned the hard way that maintainers are very proud about their job and very sensitive to critique. Therefore, we emphasize that such a kick-off meeting must be “maintainer oriented”, i.e. aimed to let the maintainers show what they do well and what they want to do better. Coming in with the attitude that you — the newcomer — will teach these stupid maintainers how to do a proper job will almost certainly lead to disasters.
 
-“The RT-100 — was developed by a third-party software vendor in the late 1980s and acquired by Nortel in 1990. For the next three years Nortel enhanced and maintained it before outsourcing it to another vendor to be systematically rewritten. This effort failed and the system was returned to Nortel in mid 1994. By this time, the original design team has been disbanded and scattered, and the product’s six customers organizations were quite unhappy.
+_“The RT-100 — was developed by a third-party software vendor in the late 1980s and acquired by Nortel in 1990. For the next three years Nortel enhanced and maintained it before outsourcing it to another vendor to be systematically rewritten. This effort failed and the system was returned to Nortel in mid 1994. By this time, the original design team has been disbanded and scattered, and the product’s six customers organizations were quite unhappy.
 _RT-100 was assigned to Nortel’s Atlanta Technology Park laboratory. No staff members there had any experience with ACD software, and, due to another project’s cancellation, staff morale was quite low.”
-— Spencer Rugaber and Jim White, [RW98]
+— Spencer Rugaber and Jim White, [RW98]_
+
 The above quote is from a paper which describes the story of a reengineering project, and depicts very well the typical desperation a reengineering project had to start with. Yet — as described in the paper itself — this early assessment of the historical and political context made it possible for the project to succeed, because they knew very well which factors would make the stakeholders happy and consequently could motivate the new reengineering team.
 
 In one of the case-studies of the DESEL project (Designing for Ease of System Evolution), Stephen Cook reports that it is crucial to talk to the maintainers as they know best which aspects of the domain are likely to change and which ones are likely to remain stable [CHR01]. As such, the maintainers have submerged knowledge about how the system could have been built, knowledge which is seldom documented. Yet, during this discussion one must emphasize a “design for evolution” mind-set, to force the maintainers to detach themselves from the latest problems they have been solving.
@@ -517,7 +522,7 @@ Dave is quite pleased to show you his work and immediately starts to type on his
 
 The next day, you put on your suit and drive off to have a meeting with doctor Mary Johanssen. While introducing yourself, you get the impression that she is not so pleased. You explain the reason of your visit and during the conversation you understand that the doctor is quite worried about your company taking over the _XDoctor_ software. You do your very best to assure her that the main purpose of the demonstration and interview is precisely to learn how your company may best serve the current users and that they do not intend to stop supporting it. Reassured, she starts the actual demonstration. Not surprisingly, the most appreciated feature is the automatic transaction processing with the health insurances, because “it means that I can save on a secretary to do the paperwork”. However, Doctor Johanssen also shows you some other features you were not aware of: built-in e-mail, export to spreadsheet (“I just e-mail this file to my bookkeeper”),
 
-image:image6.png[image,width=426,height=183]
+image:media/image6.png[image,width=426,height=183]
 
 Figure 3.2: The architecture diagram as you inferred it from the discussion with the maintainer.
 
@@ -533,7 +538,7 @@ Once you are back in your office you write a small report, which includes the se
 ==== Rationale
 
 _“The ability to respond flexibly to the interviewee’s responses is one of the reasons why interviews are so widely used”
-— Simon Bennett, _et al._., [BMF99]_
+— Simon Bennett, et al., [BMF99]_
 
 _“Interviews are well suited to exploratory studies where one does not know yet what one is looking for, since the interviewer can adjust the interview to the situation”
 — Jakob Nielsen, [Nie99]_

@@ -33,7 +33,7 @@ This pattern language consists of six patterns which address the most common pro
 
 Figure 10.1 summarizes the relationships and the differences between the patterns.
 
-image:image35.jpg[image,width=432,height=202]
+image:media/image35.jpg[image,width=432,height=202]
 
 Figure 10.1: Relationships between the patterns constituting Transform Conditionals to Polymorphism.
 
@@ -47,18 +47,21 @@ Figure 10.1: Relationships between the patterns constituting Transform Condition
 [[transform-self-type-checks]]
 === 10.1 Transform Self Type Checks
 
-*Intent* _Improve the extensibility of a class by replacing a complex conditional statement with a call to a hook method implemented by subclasses.
+*Intent* 
+_Improve the extensibility of a class by replacing a complex conditional statement with a call to a hook method implemented by subclasses._
 [[problem-36]]
 ==== Problem
 
 A class is hard to modify or extend because it bundles multiple possible behaviors in complex conditional statements that test some attribute representing the current “type” of the object.
 
 _This problem is difficult because:_
+
 * Conceptually simple extensions require many changes to the conditional code.
 * Subclassing is next to impossible without duplicating and adapting the methods containing the conditional code.
 * Adding a new behavior always results in changes to the same set of methods and always results in adding a new case to the conditional code.
 
 _Yet, solving this problem is feasible because:_
+
 * Self type checks simulate polymorphism. The conditional code tells you what subclasses you should have instead.
 
 [[solution-35]]
@@ -80,6 +83,7 @@ Most of the time, the type discrimination will jump in your face while you are w
 grep 'switch' `find . --name "*.cxx" --print`
 
 enumerates all the files in a directory tree with extension .cxx that contain a switch. Other text processing tools like agrep offer possibilities to pose finer granularity queries. Text processing languages like Perl may be better suited for evaluating some kinds of queries, especially those that span multiple lines.
+
 * _C/C++:_ Legacy C code may simulate classes by means of union types. Typically the union type will have one data member that encodes the actual type. Look for conditional statements that switch on such data members to decide which type to cast a union to and which behavior to employ.
 
 In C++ it is fairly common to find classes with data members that are declared as void pointers. Look for conditional statements that cast such pointers to a given type based on the value of some other data member. The type information may be encoded as an enum or (more commonly) as a constant integer value.
@@ -146,9 +150,8 @@ There are some situations in which explicit type-checks may nevertheless be the 
 
 We worked on a complex system that controls large, physical machines by sending them messages. These messages are represented by the class Message and can be of different types.
 
-[cols=",",]
-|
-a|
+[source]
+----
 class Message \{ public:
 
 _Message();
@@ -179,7 +182,9 @@ myMessage->set_Value("...");
 }
 
 |
+----
 
+//FIXME figures
 Figure 10.4: Initial design and source code.
 
 *Before.*
@@ -256,17 +261,21 @@ If the conditional code tests some type attribute of a second object in order to
 [[transform-client-type-checks]]
 === 10.2 Transform Client Type Checks
 
-*Intent* _Reduce client/provider coupling by transforming conditional code that tests the type of the provider into a polymorphic call to a new provider method.
+*Intent* 
+_Reduce client/provider coupling by transforming conditional code that tests the type of the provider into a polymorphic call to a new provider method._
+
 [[problem-37]]
 ==== Problem
 
 How do you reduce the coupling between clients and providers of services, where the clients explicitly check the type of providers and have the responsibility to compose providers code?
 
 _This problem is difficult because:_
+
 * Adding a new subclass to the provider hierarchy requires making changes to many clients, especially where the tests occur.
 * Clients and providers will tend to be strongly coupled, since clients are performing actions that should be the responsibility of the providers.
 
 _Yet, solving this problem is feasible because:_
+
 * The conditionals tell you to which classes you should transfer behavior.
 
 [[solution-36]]
@@ -279,7 +288,7 @@ Introduce a new method to the provider hierarchy. Implement the new method in ea
 
 Apply essentially the same techniques described in Transform Self Type Checks to detect case statements, but look for conditions that test the type of a separate service provider which _already_ implements a hierarchy. You should also look for case statements occurring in different clients of the same provider hierarchy.
 
-* _C++:_ Legacy C++ code is not likely to make use of run-time type information (RTTI). Instead, type information will likely be encoded
+* _C\++:_ Legacy C++ code is not likely to make use of run-time type information (RTTI). Instead, type information will likely be encoded
 
 in a data member that takes its value from some enumerated type representing the current class. Look for client code switching on such data members.
 
@@ -302,7 +311,8 @@ x.getClass().getName().equals(y.getClass().getName())
 4.  When all methods have been moved, each case of the conditional consists of a call to the new method, so replace the entire conditional by a single call to the new method.
 5.  Consider making the method abstract in the provider’s root. Alternatively implement suitable default behavior here.
 
-_image:image36.png[image,width=426,height=351]
+image:media/image36.png[image,width=426,height=351]
+
 Figure 10.6: Transformation of explicit type check used to determine which methods of a client should be invoked into polymorphic method calls.
 
 [[other-steps-to-consider]]
@@ -327,6 +337,7 @@ Figure 10.6: Transformation of explicit type check used to determine which metho
 ===== Cons
 
 • Sometimes it is convenient to see the code handling different cases in a single location. Transform Client Type Checks redistributes the logic to the individual provider classes, with the result that the overview is lost.
+
 [[difficulties-33]]
 ===== Difficulties
 
@@ -532,17 +543,21 @@ Replace Conditional with Polymorphism [p. 292] is the core refactoring of this r
 [[factor-out-state]]
 === 10.3 Factor out State
 
-*Intent* _Eliminate complex conditional code over an object’s state by applying the State design pattern.
+*Intent*
+_Eliminate complex conditional code over an object’s state by applying the State design pattern._
+
 [[problem-38]]
 ==== Problem
 
 How do you make a class whose behavior depends on a complex evaluation of its current state more extensible?
 
 _This problem is difficult because:_
+
 * There are several complex conditional statements spread out over the methods of the object. Adding new behavior may affect these conditionals in subtle ways.
 * Whenever new possible states are introduced, all the methods that test state have to be modified.
 
 _Yet, solving this problem is feasible because:_
+
 * The object’s instance variables are typically used to model different abstract states, each of which has its own behavior. If you can identify these abstract states, you can factor the state and the behavior out into a set of simpler, related classes.
 
 [[solution-37]]
@@ -604,17 +619,19 @@ The _Design Patterns Smalltalk Companion_ [ABW98] presents a step-by-step code t
 [[factor-out-strategy]]
 === 10.4 Factor out Strategy
 
-*Intent* _Eliminate conditional code that selects a suitable algorithm by applying the Strategy design pattern.
+*Intent* _Eliminate conditional code that selects a suitable algorithm by applying the Strategy design pattern._
 [[problem-39]]
 ==== Problem
 
 How do you make a class whose behavior depends on testing the value of some variable more extensible?
 
 _This problem is difficult because:_
+
 * New functionality cannot be added without modifying all the methods containing the conditional code.
 * The conditional code may be spread over several classes which make similar decisions about which algorithm to apply.
 
 _Yet, solving this problem is feasible because:_
+
 * The alternative behaviors are essentially interchangeable.
 
 [[solution-38]]
@@ -682,17 +699,19 @@ State identifies behavior with different possible states of objects whereas Fact
 [[introduce-null-object]]
 === 10.5 Introduce Null Object
 
-*Intent* _Eliminate conditional code that tests for null values by applying the Null Object design pattern.
+*Intent* _Eliminate conditional code that tests for null values by applying the Null Object design pattern._
 [[problem-40]]
 ==== Problem
 
 How can you ease modification and extension of a class in presence of repeated tests for null values?
 
 _This problem is difficult because:_
+
 * Client methods are always testing that certain values are not null before actually invoking their methods.
 * Adding a new subclass to the client hierarchy requires testing null values before invoking some of the provider methods.
 
 _Yet, solving this problem is feasible because:_
+
 * The client does not need to know that the provider represents a null value.
 
 [[solution-39]]
@@ -712,7 +731,7 @@ Null tests may take different forms, depending on the programming language and t
 
 Fowler discusses in detail the necessary refactoring steps [FBB^+^99].
 
-image:image37.jpg[image,width=432,height=220]
+image:media/image37.jpg[image,width=432,height=220]
 
 Figure 10.10: Transformation from a situation based on explicit test of null value to a situation where a Null Object is introduced.
 
@@ -795,17 +814,20 @@ NoController>>isControlWanted
 [[transform-conditionals-into-registration]]
 === 10.6 Transform Conditionals into Registration
 
-*Intent* _Improve the modularity of a system by replacing conditionals in clients by a registration mechanism.
+*Intent* _Improve the modularity of a system by replacing conditionals in clients by a registration mechanism._
+
 [[problem-41]]
 ==== Problem
 
 How can you reduce the coupling between _tools_ providing services and _clients_ so that the addition or removal of tools does not lead to changing the code of the clients?
 
 _This problem is difficult because:_
+
 * Having one single place to look for all the kinds of tools makes it easy to understand the system and easy to add new tools.
 * However, every time you remove a _tool_, you have to remove one case in some conditional statement, else certain parts (_tool clients_) would still reflect the presence of the removed tools, leading to fragile systems. Then every time you add a new tool, you have to add a new conditional in all the tool clients.
 
 _Yet, solving this problem is feasible because:_
+
 * Long conditionals make it easy to identify the different type of tools used.
 
 [[solution-40]]
@@ -818,6 +840,7 @@ Introduce a _registration mechanism_ to which each tool is responsible for regis
 
 1.  Define a class describing _plug-in objects_, _i.e._, an object encapsulating the information necessary for registering a tool. Although the internal structure of this class depends on the purpose of the registration, a plug-in should provide the necessary information so the tool manager can _identify_ it, _create_ instance of the represented tool and _invoke_ methods. To invoke a tool method, a method or a similar mechanism like a block closure or inner class should be stored in the plug-in object.
 
+//FIXME figure
 Figure 10.11: Transforming conditionals in tool users by introducing a registration mechanism.
 
 1.  Define a class representing the _plug-in manager_, _i.e._, that manages the plug-in objects and that will be queried by the tool clients to check the presence of the tools. This class will certainly be a singleton since the plug-ins representing the tools available should not be lost if a new instance of the plug-in manager is created.

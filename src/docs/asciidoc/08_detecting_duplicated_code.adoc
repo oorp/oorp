@@ -19,7 +19,7 @@ Duplicated code arises for a variety of reasons:
 
 From a reengineering perspective, usually people know whether or not a system suffers from duplication. First, the development team, or the manager will tell you. Second, there are normally some clear signs that duplication has been practiced in a project: for example, two developers cannot develop four millions of line of code in less than eight months without copying and pasting existing code. While analyzing the system you will also identify duplicated code by accident. There is a major difference, however, between knowing that a system contains duplicated code, and knowing exactly which parts have been duplicated.
 
-image:image23.jpg[image,width=345,height=183]
+image:media/image23.jpg[image,width=345,height=183]
 
 Figure 8.1: Two patterns to support Detecting Duplicated Code.
 
@@ -35,18 +35,21 @@ Complex conditional statements are also a form of duplication, and may indicate 
 [[compare-code-mechanically]]
 === 8.1 Compare Code Mechanically
 
-*Intent* _Discover duplicated code by comparing all the source code files line-byline.
+*Intent* _Discover duplicated code by comparing all the source code files line-byline._
+
 [[problem-31]]
 ==== Problem
 
 How do you discover which parts of an application code have been duplicated?
 
 _This problem is difficult because:_
+
 * You may suspect that code has been duplicated but you do not have any a priori evidence where the duplication occurs. For example, you know that two programmers cannot have developed 4 million lines of Cobol in one year without having duplicated some code.
 * Browsing the code is not an effective way of discovering duplication; you will only find duplicated code by accident.
 * Programmers may have not only copied and pasted code but also modified variables or changed the shape of the programs.
 
 _Yet, solving this problem is feasible because:_
+
 * Most duplicated code can be detected by mechanical procedures.
 
 [[solution-30]]
@@ -321,9 +324,11 @@ In the context of software reengineering, the pattern has been applied to detect
 How can you gain insight into the scope and nature of code duplication in a software system?
 
 _This problem is difficult because:_
+
 * Just knowing where in the system duplicated code exists does not necessarily help you to understand its nature, or what should be done about it.
 
 _Yet, solving this problem is feasible because:_
+
 * A picture is worth a thousand words.
 
 [[solution-31]]
@@ -343,7 +348,7 @@ If you want to analyze two files A and B:
 
 To analyze the duplication inside a single file, plot the elements of that file on both axes.
 
-image:image24.png[image,width=425,height=135]
+image:media/image24.png[image,width=425,height=135]
 
 Figure 8.2: Possible sequences of dot and their associated interpretations.
 
@@ -367,17 +372,18 @@ Some interesting configurations formed by the dots in the matrices are the follo
 
 * The approach is largely language-independent, since only the code normalization depends on the language syntax.
 * The approach works well when reverse engineering large amounts of unknown code, because the dotplots attract your eye to certain parts of the code to be studied more closely.
-* The idea is simple yet works surprisingly well. A simple version of the approach can be implemented by a good programmer using a
+* The idea is simple yet works surprisingly well.
 
+//FIXME figure
 Before After
 
-_image:image25.png[image,width=282,height=282]Before
+_image:media/image25.png[image,width=282,height=282]Before
 
 After
 
 Figure 8.3: Code duplication before and after refactoring.
 
-appropriate tools in a couple of days. (One of our better students made a small dotplot browser in Delphi in two days.)
+A simple version of the approach can be implemented by a good programmer using a appropriate tools in a couple of days. (One of our better students made a small dotplot browser in Delphi in two days.)
 [[cons-26]]
 ===== Cons
 
@@ -396,12 +402,12 @@ In Figure 8.3 we see a dotplot of two versions of a piece of software, before an
 
 A B
 
-A image:image26.jpg[image,width=407,height=171]
+A image:media/image26.jpg[image,width=407,height=171]
 Figure 8.4: A Python file A being compared to itself and to a second file B.
 
 The bottom left and top right squares are mirror images of each other. They tell us how the before and after files have been reorganized. Since there is no strong diagonal, this tells us that significant reorganization has taken place. The diagonal stripes show us which parts of the old version have survived and where they appear in the new version. From the dot-
 
-image:image27.jpg[image,width=317,height=317]
+image:media/image27.jpg[image,width=317,height=317]
 
 Figure 8.5: Dotplots produced by four switch statements.
 plot alone, we can guess that about half of the code has survived, and another half of the code has been significantly rewritten.

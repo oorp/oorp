@@ -13,7 +13,7 @@ When you start a reengineering project, you will be pulled in many different dir
 * It is easy to get seduced by focussing on the technical problems that interest you the most, rather than what is best for the project.
 * It can be difficult to decide whether to wrap, refactor or rewrite a problematic component of a legacy system. Each of these options will address different risks, and will have different consequences for
 
-image:image4.jpg[image,width=432,height=209]
+image:media/image4.jpg[image,width=432,height=209]
 
 Figure 2.1: Principles and guidelines to set and maintain direction in reengineering project.
 
@@ -41,7 +41,7 @@ To help you focus on the right problems and the critical decisions, it is wise t
 
 *Discussion* Any reengineering project must cope with a large number of conflicting interests. Management wants to protect its legacy by improving competitiveness of its product and reducing maintenance costs. Users want improved functionality without disrupting their established work patterns. Developers and maintainers would like their jobs to become simpler without being made obsolete. Your team members may each have their own ideas about what a new system should look like.
 
-Unless there is a clear understand about certain fundamental questions, such as _What is our business model?_ or _Who is responsible for what?_ you risk that the team will be pulled apart by conflicting interests, and you will not achieve your goal. Maxims are rules of conduct that can help steer a project that is pulled in many directions. Goldberg and Rubin [GR95] give numerous examples of maxims, such as _“Everyone is responsible for testing and debugging”_ and _“You cannot do it right the first time.”
+Unless there is a clear understand about certain fundamental questions, such as _What is our business model?_ or _Who is responsible for what?_ you risk that the team will be pulled apart by conflicting interests, and you will not achieve your goal. Maxims are rules of conduct that can help steer a project that is pulled in many directions. Goldberg and Rubin [GR95] give numerous examples of maxims, such as _“Everyone is responsible for testing and debugging”_ and _“You cannot do it right the first time.”_
 All of the patterns in this chapter can be read as maxims (rather than as patterns), since they are intended to guide a team and keep it on track. A maxim like Most Valuable First, for example, is intended to prevent a team from squandering reengineering effort on technically interesting, but marginal aspects that neither protect nor add value to the legacy system. Agree on Maxims is itself a maxim, that can help a team detect when it is rudderless.
 
 A key point to remember is that any maxim may only have a limited lifetime. It is important to periodically reevaluate the validity of any maxims that have been adopted. A project can get completely off track if you agree on the wrong maxims, or the right ones but at the wrong time.
@@ -91,7 +91,9 @@ Beck and Fowler recommend “Stand Up Meetings” (meetings without chairs) as a
 
 By concentrating first on a part of the system that is valuable to the client, you also maximize the commitment that you, your team members and your customers will have in the project. You furthermore increase your chances of having early positive results that demonstrate that the reengineering effort is worthwhile and necessary.
 
-Nevertheless there are a number of difficulties in applying this pattern: _Who is your customer?* There are many stakeholders in any legacy system, but only one of these is your customer. You can only set priorities if you have a clear understanding who should be calling the shots.
+Nevertheless there are a number of difficulties in applying this pattern: _Who is your customer?_
+
+* There are many stakeholders in any legacy system, but only one of these is your customer. You can only set priorities if you have a clear understanding who should be calling the shots.
 
 _How do you tell what is valuable?_
 
@@ -103,7 +105,9 @@ _How do you tell what is valuable?_
 * If the customer is unwilling or unable to set priorities, then play the _Planning Game_ [BF01]: collect requirements from all the stakeholders, and make a ballpark estimate of the effort required for each identifiable task. Given an initial budget of effort for an early first milestone, ask the customer to select tasks that will fit in the budget. Repeat this exercise at each iteration.
 * Beware of _changing perceptions_. Initially the customer may draw your attention to certain symptoms of problems with the legacy system, rather than the problems themselves (see Fix Problems, Not Symptoms [p. 28]).
 
-Isn’t there a risk of raising expectations too high?* If you fail to deliver good initial results, you will learn a lot, but you risk losing credibility. It is therefore critical to choose carefully initial tasks which not only demonstrate value for the customer, but also have a high chance of success. Therefore, take great care in estimating the effort of the initial tasks.
+_Isn’t there a risk of raising expectations too high?_
+
+* If you fail to deliver good initial results, you will learn a lot, but you risk losing credibility. It is therefore critical to choose carefully initial tasks which not only demonstrate value for the customer, but also have a high chance of success. Therefore, take great care in estimating the effort of the initial tasks.
 * The key to success is to plan for small, frequent iterations. If the initial task identified by the customer is too large to demonstrate initial results in a short time frame (such as two weeks), then insist on breaking it down into smaller subtasks that can be tackled in shorter iterations. If you are successful in your first steps, you will certainly raise expectations, but this is not bad if the steps stay small.
 
 _What if the most valuable part is a rat’s nest?_

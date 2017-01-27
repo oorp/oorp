@@ -20,7 +20,7 @@ How can you be sure that the new system will be accepted by users? How do you mi
 It is not enough to reengineer a legacy system and then deploy it. In fact, if you try this, you will surely fail (for the same reasons that big Waterfall projects in new territories often fail). You must be prepared to introduce the new solution gradually, to gain the confidence and collaboration
 
 
-image:image22.jpg[image,width=432,height=256]
+image:media/image22.jpg[image,width=432,height=256]
 
 Figure 7.1: How, why and whither to migrate legacy systems.
 of the users, and you must adopt a strategy for migrating gradually and painlessly from the existing system, _while it is still being deployed_, to the new system.
@@ -424,12 +424,12 @@ Run your regression test suite every time you think you have reached a stable st
 [[tradeoffs-24]]
 ==== Tradeoffs
 
-*Pros*
+===== Pros
 
 * It is easier to Always Have a Running Version.
 * It is easier to Build Confidence as you proceed.
 
-*Cons*
+===== Cons
 
 * You must relentlessly write the tests.
 
@@ -770,8 +770,8 @@ Introduce only a constant, relatively low number of changes between each new rel
 ==== Tradeoffs
 
 [[pros-28]]
-#FIXME header Pros Cons not equal
-*Pros*
+//FIXME header Pros Cons not equal
+===== Pros
 
 * Users do not have to change their work habits too much between releases.
 

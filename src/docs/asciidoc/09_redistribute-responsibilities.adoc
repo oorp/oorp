@@ -9,7 +9,8 @@ As long as the system was relatively stable, this design posed no particular pro
 === Forces
 
 * Data containers (objects that just provide access to data, but no own behavior) are a simple and convenient way to share information between many subsystems. Among others, data containers are the easiest way to provide access to database entities.
-* However, data containers expose the data representation, hence are difficult to change when many application components depend on them. _Consequently, a proliferation of data containers leads to fragile navigation code in the implementation of business logic.* It is hard to teach an old dog new tricks. Many designers received a training in functional decomposition and will use the same habits when doing an object design.
+* However, data containers expose the data representation, hence are difficult to change when many application components depend on them. _Consequently, a proliferation of data containers leads to fragile navigation code in the implementation of business logic._
+* It is hard to teach an old dog new tricks. Many designers received a training in functional decomposition and will use the same habits when doing an object design.
 * However, functional decomposition tends to generate god classes, _i.e._, big classes that do all of the work and have a myriad of tiny provider classes around of it. God classes are hard to extend, modify or subclass because such changes affect large numbers of other methods or instance variables.
 
 [[overview-7]]
@@ -23,7 +24,7 @@ Data containers lead to violations of the _Law of Demeter_ (LOD) [LHR88]. In a n
 
 Violations of the Law of Demeter typically take the form of _navigation code_ in which an _indirect client_ accesses an _indirect provider_ by accessing either an instance variable or an acquaintance of an _intermediate provider_. The indirect client and provider are thereby unnecessarily coupled, making future enhancements more difficult to realize (Figure 9.2). The intermediate provider may take the form of a data container or opens its encapsulation by providing accessor methods. Designs with many data containers present often suffer from complex navigation code in which indirect clients may have to navigate through a chain of intermediates to reach the indirect provider.
 
-image:image28.jpg[image,width=432,height=107]
+image:media/image28.jpg[image,width=432,height=107]
 
 Figure 9.1: An indirect client violates the Law of Demeter by navigating through an intermediate provider to an indirect provider, unnecessarily coupling the two.
 
@@ -37,7 +38,7 @@ This cluster provides a number of patterns to eliminate data containers and god 
 
 * Move Behavior Close to Data [p. 221] moves behavior defined in
 
-image:image29.jpg[image,width=432,height=145]
+image:media/image29.jpg[image,width=432,height=145]
 
 Figure 9.2: Data containers are the clearest sign of misplaced responsibilities. These three patterns redistribute responsibilities by moving behavior close to data.
 
@@ -49,18 +50,21 @@ indirect clients to an intermediate data container to make it more “object-lik
 [[move-behavior-close-to-data]]
 === 9.1 Move Behavior Close to Data
 
-*Intent* _Strengthen encapsulation by moving behavior from indirect clients to the class containing the data it operates on.
+*Intent* _Strengthen encapsulation by moving behavior from indirect clients to the class containing the data it operates on._
+
 [[problem-33]]
 ==== Problem
 
 How do you transform a class from being a mere data container into a real service provider?
 
 _This problem is difficult because:_
+
 * Data containers offer only accessor methods or public instance variables, and not real behavior, forcing clients to define the behavior themselves instead of just using it. New clients typically have to reimplement this behavior.
 * If the internal representation of a data container changes, many clients have to be updated.
 * Data containers cannot be used polymorphically since they define no behavior and their interfaces consist mainly of accessor methods. As a consequence, clients will be responsible for deciding which behavior is called for in any given context.
 
 _Yet, solving this problem is feasible because:_
+
 * You know what operations clients perform with the data.
 
 [[solution-32]]
@@ -68,11 +72,13 @@ _Yet, solving this problem is feasible because:_
 
 Move behavior defined by indirect clients to the container of the data on which it operates.
 
-*Detection* Look for:
+*Detection*
+
+Look for:
 
 * Data containers, _i.e._, classes defining mostly public accessor methods and few behavior methods (_i.e._, the number of methods is approximately 2 times larger than the number of attributes.
 
-image:image30.jpg[image,width=432,height=250]
+image:media/image30.jpg[image,width=432,height=250]
 
 Figure 9.3: Classes that were mere data containers are transformed into real service providers.
 
@@ -144,7 +150,7 @@ _Mapping classes_ are classes used to represent mappings between objects and the
 
 One of the recurring complaints of the customers is that it takes too much time to change the reports generated by the information system. By talking to the maintainers you learn that they find generating the reports quite boring. “Its’s always the same code you have to write,” says Chris, one
 
-image:image31.jpg[image,width=432,height=133]
+image:media/image31.jpg[image,width=432,height=133]
 
 Figure 9.4: The Payroll and Telephone classes access the internal representation of the class Employee to print a representation.
 
@@ -284,7 +290,7 @@ Finally, verify which other methods refer to the name(), address() and telephone
 
 After applying Move Behavior Close to Data the class Employee now provides a printLabel method which takes one argument to represent the different separators (see Figure 9.5). This is a better situation because now
 
-image:image32.jpg[image,width=432,height=150]
+image:media/image32.jpg[image,width=432,height=150]
 
 Figure 9.5: The Payroll class uses the public interface of the class Employee to print a representation of Employee; data accessors became private.
 
@@ -294,7 +300,7 @@ clients do not rely on the internal representation of Employee. Moreover, by mov
 ==== Rationale
 
 _Keep related data and behavior in one place.
-— Arthur Riel, Heuristic 2.9 [Rie96]
+— Arthur Riel, Heuristic 2.9 [Rie96]_
 
 Data containers impede evolution because they expose structure and force clients to define their behavior rather than sharing it. By promoting data containers to service providers, you reduce coupling between classes and improve cohesion of data and behavior.
 
@@ -308,16 +314,18 @@ Encapsulate Field [p. 291] offers heuristics that help determine where methods s
 
 _Also Known As:_ Law of Demeter [LHR88]
 
-*Intent* _Reduce the impact of changes by shifting responsibility down a chain of connected classes.
+*Intent* _Reduce the impact of changes by shifting responsibility down a chain of connected classes._
 [[problem-34]]
 ==== Problem
 
 How do you reduce coupling due to classes that navigate through the object graph?
 
 _This problem is difficult because:_
+
 * Changes in the interfaces of a class will affect not only direct clients, but also all the indirect clients that navigate to reach it.
 
 _Yet, solving this problem is feasible because:_
+
 * Navigation code is typically a sign of misplaced responsibilities and violation of encapsulation.
 
 [[solution-33]]
@@ -343,11 +351,14 @@ Look for _indirect clients_ that contain a lot of _navigation code_. Navigation 
 
 Navigation code can be detected by simple pattern matching. However, to really detect a method call navigation sequence leading to coupled classes, you should filter out sequences of calls converting one object to another one. For example, the following two Java expressions are not problematic because they deal with object conversion.
 
+[source,java]
+----
 leftSide().toString()
-
 i.getValue().isShort()
+----
 
 To deal with this case you can:
+
 * look for more than two calls, or
 * eliminate from consideration known object conversion calls, including standard method invocations for converting to and from primitive types.
 
@@ -406,12 +417,11 @@ More sophisticated matching expressions can reduce the noise produced by the par
 
 _AST Matching._ If you have a way to express tree matching, you can detect navigation code. For example, the Rewrite Rule Editor that comes with the Refactoring Browser [RBJ97] can detect navigation code using the pattern
 
-_image:image33.png[image,width=342,height=273]
+image:media/image33.png[image,width=342,height=273]
+
 Figure 9.6: Chains of data containers can be converted into service providers, thereby eliminating navigation code and reducing coupling between classes.
 
-’@object ’mess1 ’mess2 ’mess3. To narrow the analysis of the results you should only consider messages that belong to the domain objects and eliminate all the method selectors of libraries objects like (isNil, not, class,
-
-...).
++’@object ’mess1 ’mess2 ’mess3.+ To narrow the analysis of the results you should only consider messages that belong to the domain objects and eliminate all the method selectors of libraries objects like +(isNil, not, class, ...)+.
 
 [[steps-14]]
 ===== Steps
@@ -492,25 +502,24 @@ The solution is to extract the nested for loops as separate methods and move the
 
 First extract the outer for loop from Reports.countHandledFiles as a separate method (name it countHandledFiles as well) and move it to the class Department.
 
-[cols="",]
-|
-a|
-public class Department \{
+[source, java]
+----
+public class Department {
 
 ...
 
 public void countHandledFiles
 
-(Counter nrHandled, Counter nrUnhandled) \{ for (int i=0; i < this.employees.length; i++) \{ for (int j=0; j < this.employees[i].files.length; j++) \{ if (this.employees[i].files[j].handled()) \{ nrHandled.increment();}
+(Counter nrHandled, Counter nrUnhandled) { for (int i=0; i < this.employees.length; i++) \{ for (int j=0; j < this.employees[i].files.length; j++) { if (this.employees[i].files[j].handled()) { nrHandled.increment();}
 
-else \{ nrUnhandled.increment();}}}}
+else { nrUnhandled.increment();}}}}
 ...}
 
 public class Reports \{
 
 ...
 
-_private static void countHandledFiles(Department department) \{
+private static void countHandledFiles(Department department) {
 
 Counter nrHandled = new Counter (0), nrUnhandled = new Counter
 
@@ -519,13 +528,12 @@ Counter nrHandled = new Counter (0), nrUnhandled = new Counter
 department.countHandledFiles(nrHandled, nrUnhandled);
 ...}
 
-|
+----
 
 Next, extract the inner for loop from Department.countHandledFiles (also named countHandledFiles) and move it to the class Employee.
 
-[cols="",options="header",]
-|
-a|
+[source,java]
+----
 public class Employee \{
 
 ...
@@ -550,15 +558,19 @@ this.employees[i].countHandledFiles(nrHandled, nrUnhandled);}}
 
 ...}
 
-|
+----
 
 If all direct accesses to the employees and files variables are removed, these attributes can be declared private.
 
 [[rationale-28]]
 ==== Rationale
 
-A method “M” of an object “O” should invoke only the methods of the following kinds of objects.1.  _itself2.  _its parameters3.  _any object it creates/instantiates4.  _its direct component objects
-— Law of Demeter
+_A method “M” of an object “O” should invoke only the methods of the following kinds of objects. 
+1.  itself
+2.  its parameters
+3.  any object it creates/instantiates
+4.  its direct component objects
+— Law of Demeter_
 
 Navigation code is a well-known symptom of misplaced behavior [LK94] [Sha97] [Rie96] that violates the Law of Demeter [LHR88]. It leads to unnecessary dependencies between classes and as a consequence changing the representation of a class requires _all_ clients to be adapted.
 
@@ -572,19 +584,22 @@ Eliminate Navigation Code and Compare Code Mechanically [p. 204] reinforce each 
 
 _Also Known As:_ The Blob [BMMM98], God Class [Rie96]
 
-*Intent* _Split up a class with too many responsibilities into a number of smaller, cohesive classes.
+*Intent* _Split up a class with too many responsibilities into a number of smaller, cohesive classes._A
+
 [[problem-35]]
 ==== Problem
 
 How do you maintain a class that assumes too many responsibilities?
 
 _This problem is difficult because:_
+
 * By assuming too many responsibilities, a god class monopolizes control of an application. Evolution of the application is difficult because nearly every change touches this class, and affects multiple responsibilities.
 * It is difficult to understand the different abstractions that are intermixed in a god class. Most of the data of the multiple abstractions are accessed from different places.
 * Identifying where to change a feature without impacting the other functionality or other objects in the system is difficult. Moreover, changes in other objects are likely to impact the god class, thus hampering the evolution of the system.
 * It is nearly impossible to change a part of the behavior of a god class in a black-box way.
 
 _Yet, solving this problem is feasible because:_
+
 * You don’t have to fix the problem in one shot.
 * You can use Semantic Wrapper to wrap it and present interfaces.
 
@@ -617,7 +632,8 @@ A god class may be recognized in various ways:
 
 The solution relies on incrementally moving behavior away from the god class. During this process, data containers will become more object-like by acquiring the functionality that the god class was performing on their data. Some new classes will also be extracted from the god class.
 
-_image:image34.png[image,width=340,height=347]
+_image:media/image34.png[image,width=340,height=347]
+
 Figure 9.8: A god class is refactored in two stages, first by redistributing responsibilities to data containers, or by spawning off new classes, until there is nothing left but a facade, and second by removing the facade.
 
 The following steps describe how this process ideally works. Note, however, that god classes can vary greatly in terms of their internal structure, so different techniques may be used to implement the transformation steps. Furthermore, it should be clear that a god class cannot be cured in one shot, so a safe way to proceed is to first transform a god class into a lightweight god class, then into a Facade [p. 293] that delegates behavior to its acquaintances. Finally, clients are redirected to the refactored data containers and the other new objects, and the Facade can be removed. The process is illustrated in figure 39.
@@ -663,7 +679,7 @@ Suppose, on the other hand, that it is the _clients_ of the god class that are u
 ==== Rationale
 
 _Do not create god classes/objects in your system.
-— Arthur Riel, Heuristic 3.2 [Rie96]
+— Arthur Riel, Heuristic 3.2 [Rie96]_
 
 God classes impede evolution because they achieve only a low level of procedural abstraction, so changes may affect many parts of the god class, its data containers and its clients. By splitting a god class up into objectoriented abstractions, changes will tend to be more localized, therefore easier to implement.
 
@@ -672,7 +688,7 @@ God classes impede evolution because they achieve only a low level of procedural
 
 Foote and Yoder in “Big Ball of Mud” [FY00] note that god classes (and worse) arise naturally in software development.
 
-“People build BIG BALLS OF MUD because they work. In many domains, they are the only things that have been shown to work. Indeed, they work where loftier approaches have yet to demonstrate that they can compete.
-_It is not our purpose to condemn BIG BALLS OF MUD. Casual architecture is natural during the early stages of a system’s evolution. The reader must surely suspect, however, that our hope is that we can aspire to do better. By recognizing the forces and pressures that lead to architectural malaise, and how and when they might be confronted, we hope to set the stage for the emergence of truly durable artifacts that can put architects in dominant positions for years to come. The key is to ensure that the system, its programmers, and, indeed the entire organization, learn about the domain, and the architectural opportunities looming within it, as the system grows and matures.”— Foote & Yoder [FY00]
+_“People build BIG BALLS OF MUD because they work. In many domains, they are the only things that have been shown to work. Indeed, they work where loftier approaches have yet to demonstrate that they can compete.
+It is not our purpose to condemn BIG BALLS OF MUD. Casual architecture is natural during the early stages of a system’s evolution. The reader must surely suspect, however, that our hope is that we can aspire to do better. By recognizing the forces and pressures that lead to architectural malaise, and how and when they might be confronted, we hope to set the stage for the emergence of truly durable artifacts that can put architects in dominant positions for years to come. The key is to ensure that the system, its programmers, and, indeed the entire organization, learn about the domain, and the architectural opportunities looming within it, as the system grows and matures.”— Foote & Yoder [FY00]_
 
 Present the Right Interface [p. 187] is a competing pattern that should be applied when the god class itself rarely needs to be modified or extended.
