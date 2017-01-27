@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.oorp</groupId>
     <artifactId>oorp</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.01-alpha-SNAPSHOT</version>
     <name>Object-Oriented Reengineering Patterns</name>
     <description>Patterns for getting legacy systems back to sucess</description>
 

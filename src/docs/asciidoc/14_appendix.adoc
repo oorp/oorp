@@ -1,0 +1,65 @@
+[[appendix]]
+== Appendix
+[[praise-for-object-oriented-reengineering-patterns]]
+=== Praise 
+_for the original Object-Oriented Reengineering Patterns book_
+
+[quote,Kent Beck,"Director, Three Rivers Institute"]
+____
+“How” to refactor is already well covered in the literature. However, “When” and “Why” can only be learned by experience. This book will give you a head start in learning when to start redesigning a system, when to stop for now, and what effects you can expect to see from your efforts.
+____
+
+[quote,Frank Buschmann,Senior Principal Engineer Siemens AG]
+____
+This book is full of practical, hands-on reengineering knowledge and expertise presented in a form that makes it easy to understand and use. The patterns in this book thus help everyone who is concerned with using reengineering to guide their work. I wish I had had this book in my library earlier.
+____
+
+[quote,Adele Goldberg, "Neometron, Inc."]
+____
+This book is more than its title advertises. Effective reengineering is really about purposeful and efficient reading of someone else’s code in order to produce predictable change. The same processes the authors highlight as patterns of skillful reengineering behavior can easily be cast as the skills you need to create readable, maintainable software systems.
+____
+
+[quote, ]Linda Rising, Independent Consultant]
+____
+If a guy named Dave brought a large box to my office that contained a lot of documentation and two CDs-installation disks for software that my company wanted to reengineer — I’d be happy to have the authors of this book by my side. Barring that, having their book is the next best thing. No silver bullets, no hype, no promises that this will be easy — just a down-toearth, easy-to-read, extremely useful book of helpful guidelines to tackle the project. Buy this book and browse it before Dave arrives in your office! It just might save you and your company a lot of grief.
+____
+
+[[foreword]]
+=== Foreword
+
+[[foreword-by-martin-fowler]]
+==== Foreword by Martin Fowler
+
+For a long time it’s puzzled me that most books on software development processes talk about what to do when you are starting from a blank sheet of editor screen. It’s puzzled me because that’s not the most common situation that people write code in. Most people have to make changes to an existing code base, even if it’s their own. In an ideal world this code base is well designed and well factored, but we all know how often the ideal world appears in our career.
+
+So this book is important because it’s written from the perspective of what to do with an imperfect yet valuable code base. I also like the fact that it’s based on an effective mix of academic and industrial work. I visited the FAMOOS group in their early days during a chill early winter in Bern. I liked the way that they cycled between the field and the lab, trying out ideas on real projects, coming back to the lab to reflect.
+
+This resulting book speaks with that experience. It gives you the building blocks for a plan to tackle a difficult code base, it gives you context for techniques like refactoring. It is a sad fact that there are too few of these kinds of books out there, when reengineering is still a common event. But I’m at least glad to see that while there aren’t many books in this vein, this book is an example of how good they are.
+
+Martin Fowler, _Thought Works, Inc._
+[[foreword-by-ralph-e.-johnson]]
+==== Foreword by Ralph E. Johnson
+
+One of the signs of a good pattern is that experts who read it are likely to say “of course, everybody knows that” but beginners are likely to say “interesting, but will it work?” Patterns should be easy to follow, but the most valuable patterns are those that are not obvious. Experts have learned from experience that the patterns work, but beginners have to take the patterns on faith until they use them and develop their own experience.
+
+Over the last couple of years, I’ve had the chance to give the patterns in this book to a wide variety of people and discuss them. My pattern discussion group has a few members who have decades of consulting experience, and they could quickly regale the group with stories of using these patterns. The younger members loved the stories as they were convinced of the value of the patterns.
+
+I made students in my software engineering class read some of the patterns as part of a section on reengineering. The section went well even though none of the students got excited by the patterns. They didn’t have the experience to evaluate them. However, one of the students came back to me after his summer job and said that of everything in the course, the material that was the most useful was the patterns on reverse engineering. Before that experience, the patterns seemed believable. Afterwards, they were believed!
+
+If you have a lot of experience with software reengineering then you probably won’t learn much from this book. You should read it anyway, because you’ll want to give copies to people you work with, and you will want to use the vocabulary of the book when you talk with them. If you are new to reengineering, you should read the book, learn the patterns, and try them. You will learn a lot that will be valuable. Don’t expect to understand the patterns completely before you try them, because patterns are practical, and practical knowledge has to be experienced to be fully understood. Nevertheless, the book will give you a big advantage. It is much easier to learn when you have a path to follow, and this book provides a reliable guide.
+
+Ralph E. Johnson, _University of Illinois at Urbana-Champaign_*
+
+=== Acknowledgments
+
+We would like to thank first and foremost our FAMOOS partners at Nokia, Daimler-Benz, FZI and Sema who provided the context for discovering these patterns. Persons like Juha (Julho) Tuominen, Roland Trauter, Eduardo Casais and Theo Dirk Meijler played a crucial role while starting the project. We would especially like to thank our co-authors of the prototype for this book, _The FAMOOS Object-Oriented Reengineering Handbook:_ Holger Bär, Markus Bauer, Oliver Ciupke, Michele Lanza, Radu Marinescu, Robb Nebbe, Michael Przybilski, Tamar Richner, Matthias Rieger, Claudio Riva, Anne-Marie Sassen, Benedikt Schulz, Patrick Steyaert, Sander Tichelaar and Joachim Weisbrod.
+
+We gratefully acknowledge the financial support of the European Union towards ESPRIT project 21975 (FAMOOS) as well as that of the Swiss Government towards projects NFS-2000-46947.96 and BBW-96.0015. The University of Antwerp provided financial support in terms of a grant entitled “Object Oriented Reengineering” while the Fund for Scientific Research in Flanders sponsored by means of a research network named “Foundations of Software Evolution”.
+
+Some of the material in this book was presented in the graduate course “Object-Oriented software Reengineering” held at the University of Bern in the winter semesters of 1998 and 1999, and at several tutorials at OOPSLA. We would like to thank the participants of the courses and tutorials for their feedback and input. We also would like to thank members of the Software Composition Group at the University of Bern for participating in several pattern workshops and giving valuable feedback on many of the patterns in this book: Michele Lanza, Pietro Malorgio, Robbe Nebbe, Tamar Richner, Matthias Rieger and Sander Tichelaar.
+
+Several of the patterns in this book have been presented elsewhere. We would like to thank our EuroPLoP shepherds Kent Beck (1998), Kyle Brown (1999), Neil Harrison (2000), Mary Lynn Manns (2000), Don Roberts (1998) and Charles Weir (1998) and all participants of the writers’ workshops where these patterns have been discussed. Special thanks go to Jens Coldewey for helping us out with pattern forms and forces.
+
+We would like to thank the members and friends of Ralph Johnson’s Software Architecture Group who workshopped several chapters of this book: John Brant, Brian Foote, Alejandra Garrido, Peter Hatch, Ralph Johnson, Brian Marick, Andrew Rosenfeld, Weerasak Witthawaskul and Joe Yoder. Downloading and playing voluminous megabytes of workshop recordings in mp3 format truly made each of us feel like a “fly on the wall”!
+
+We would like to thank Tim Cox, our editor, and Stacie Pierce, his assistant, both at Morgan Kaufmann, for following our project with such dedication. Also, thanks to Christa Preisendanz at DPunkt Verlag for putting us in touch with Tim in the first place! We especially appreciated the two very thorough rounds of reviews that this book underwent, and we only regret that the final draft of this book is nothing like the definitive work some of reviewers clearly hoped it would be! We thank our reviewers for reading between the lines and helping to explain many of these patterns to us: Kyle Brown, Thierry Cattel, Oliver Ciupke, Koen De Hondt, Jim Coplien, Gert Florijn, Neil Harrison, Mary Lynn Manns, Alan O’Callaghan, Don Roberts and Benedikt Schulz.

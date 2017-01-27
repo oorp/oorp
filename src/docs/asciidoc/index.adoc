@@ -1,6 +1,6 @@
 = Object-Oriented Reengineering Patterns
 Serge Demeyer, Stéphane Ducasse, Oscar Nierstraszv
-0.01, 2017-01-25
+0.01-alpha, 2017-01-27
 :doctype: book
 :toc:
 :toclevels: 2
@@ -18,12 +18,18 @@ include::03_first_contact.adoc[]
 include::04_initial_understanding.adoc[]
 include::05_detailed_model_capture.adoc[]
 include::06_tests_your_life_insurance.adoc[]
+
 // Reengineering
 include::07_migration_strategies.adoc[]
 include::08_detecting_duplicated_code.adoc[]
 include::09_redistribute-responsibilities.adoc[]
 include::10_transform_conditionals_to_polymorphism.adoc[]
+
 // Appendices
 include::11_thumbnail_patterns.adoc[]
 include::12_bibliography.adoc[]
+
+// index not needed, for later referencing probably necessary
 //include::13_index.adoc[]
+
+include::14_appendix.adoc[]
