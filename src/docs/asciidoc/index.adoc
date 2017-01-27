@@ -3,7 +3,7 @@ Serge Demeyer, Stéphane Ducasse, Oscar Nierstraszv
 0.01, 2017-01-25
 :doctype: book
 :toc:
-:toclevels: 3
+:toclevels: 2
 :linkattrs:
 
 
