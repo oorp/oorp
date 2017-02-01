@@ -1,12 +1,14 @@
-= Object-Oriented Reengineering Patterns 
-Serge Demeyer, Stéphane Ducasse, Oscar Nierstraszv
-0.01-alpha, 2017-01-27
+= Object-Oriented Reengineering Patterns
+Legacy Edition
+0.01-alpha
+
 :doctype: book
 :toc:
 :toclevels: 2
 :linkattrs:
 
 include::00_introduction.adoc[]
+
 // Introduction
 
 include::01_reengineering_patterns.adoc[]
@@ -29,6 +31,7 @@ include::11_thumbnail_patterns.adoc[]
 include::12_bibliography.adoc[]
 
 // index not needed, for later referencing probably necessary
+
 //include::13_index.adoc[]
 
 include::14_appendix.adoc[]
