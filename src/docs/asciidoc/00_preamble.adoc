@@ -5,6 +5,8 @@ This site is a migrated version of the freely available book http://scg.unibe.ch
 === Copyright / License
 Copyright © 2003 by Elsevier Science (USA). Copyright © 2008, 2009 by Serge Demeyer, Stéphane Ducasse and Oscar Nierstrasz. The contents of this book are protected under http://creativecommons.org/licenses/by-sa/3.0[Creative Commons Attribution-ShareAlike 3.0 Unported] license.
 
+Unless required by applicable law or agreed to in writing, software and documentation distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
 [[a-fairy-tale]]
 === A Fairy Tale
 [quote]
