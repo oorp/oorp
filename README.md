@@ -8,7 +8,7 @@ A migration project of the genius book "Object-Oriented Reengineering Patterns" 
 Migrate the OORP book to AsciiDoc to enable a community-driven enhancements like
 
 -  code examples in a more common language like Java
--  reproducible code analysis skripts in a notebook-like format like Jupyter
+-  reproducible code analysis scripts in a notebook-like format like Jupyter
 -  adding missing patterns that motivate reengineering projects financially
 
 ...and of course your ideas!
