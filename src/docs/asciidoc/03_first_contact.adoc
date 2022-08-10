@@ -29,7 +29,7 @@ Typically, your new colleagues will fall into three categories. The first catego
 
 Wasting time is the largest risk when you have your first contact with a system, therefore these patterns should be applied during a short time span, say one week. After this week you should grasp the main issues and
 
-image:media/media/image5.jpg[image,width=432,height=243]
+image:media/image5.jpg[image,width=432,height=243]
 
 Figure 3.1: Assess the _feasibility_ of the project during your First Contact with the system.
 
